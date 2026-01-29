@@ -5,6 +5,14 @@
 <title>Inscription — Eden Survival</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
+<!-- EmailJS -->
+<script src="https://cdn.jsdelivr.net/npm/emailjs-com@3/dist/email.min.js"></script>
+<script>
+(function(){
+  emailjs.init("PUBLIC_KEY_ICI"); // 🔴 À REMPLACER
+})();
+</script>
+
 <style>
 body{
   margin:0;
@@ -12,88 +20,85 @@ body{
   background:linear-gradient(180deg,#0b1d26,#02090d);
   color:#e5f7ff;
 }
-nav{
-  position:fixed;top:0;width:100%;
-  background:#02090d;z-index:1000;
-  box-shadow:0 0 15px rgba(0,229,255,.3)
-}
-nav ul{
-  list-style:none;display:flex;
-  justify-content:center;gap:20px;
-  padding:15px;margin:0;flex-wrap:wrap
-}
-nav a{
-  color:#e5f7ff;text-decoration:none;
-  font-weight:bold
-}
-nav a:hover{color:#00e5ff}
-.highlight{
-  color:#00e5ff;
-  text-shadow:0 0 10px #00e5ff
-}
-main{
-  max-width:800px;
-  margin:auto;
-  padding:120px 20px 60px
-}
-.card{
-  background:rgba(255,255,255,.05);
-  padding:25px;
+.container{
+  max-width:500px;
+  margin:100px auto;
+  padding:40px;
+  background:rgba(255,255,255,0.06);
   border-radius:12px;
-  box-shadow:0 0 20px rgba(0,229,255,.2)
+  box-shadow:0 0 25px rgba(0,229,255,0.3);
 }
-input,select,button{
+h1{
+  text-align:center;
+  color:#00e5ff;
+}
+input,select{
   width:100%;
   padding:12px;
-  margin:10px 0;
+  margin:12px 0;
   border-radius:8px;
   border:none;
-  font-size:1rem
 }
 button{
+  width:100%;
+  padding:14px;
   background:#00e5ff;
   color:#02090d;
   font-weight:bold;
+  border:none;
+  border-radius:30px;
   cursor:pointer;
-  box-shadow:0 0 15px #00e5ff;
-  transition:.3s
 }
-button:hover{transform:scale(1.05)}
-footer{
+button:hover{
+  background:#7ff6ff;
+}
+#msg{
   text-align:center;
-  padding:30px;
-  opacity:.7
+  margin-top:15px;
 }
 </style>
 </head>
 
 <body>
 
-<nav>
-<ul>
-  <li><a href="index.html">Accueil</a></li>
-  <li><a href="parametres.html">Paramètres</a></li>
-  <li><a href="mods.html">Mods</a></li>
-  <li><a href="shop-vip.html">Shop VIP</a></li>
-  <li><a href="inscription.html" class="highlight">Inscription</a></li>
-</ul>
-</nav>
+<div class="container">
+<h1>📝 Inscription Eden Survival</h1>
 
-<main>
-<h1>📝 Inscription — Eden Survival</h1>
+<form id="inscriptionForm">
+  <input type="text" name="pseudo" placeholder="Pseudo en jeu" required>
 
-<div class="card">
-<p>
-Inscris-toi pour rejoindre le serveur <strong>Eden Survival</strong>.  
-L’inscription permet un meilleur suivi et l’accès aux informations serveur.
-</p>
+  <select name="plateforme" required>
+    <option value="">Plateforme</option>
+    <option>PC</option>
+    <option>PlayStation</option>
+    <option>Xbox</option>
+  </select>
 
-<form>
-<label>Pseudo ARK</label>
-<input type="text" placeholder="Ton pseudo en jeu" required>
+  <input type="email" name="email" placeholder="Adresse email" required>
 
-<label>Plateforme</label>
-<select required>
-  <option>PC</option>
-  <option>PlayStation</option>
-  <option>Xbox</option>
+  <button type="submit">Envoyer l’inscription</button>
+</form>
+
+<p id="msg"></p>
+</div>
+
+<script>
+document.getElementById("inscriptionForm").addEventListener("submit", function(e){
+  e.preventDefault();
+
+  emailjs.send("SERVICE_ID_ICI","TEMPLATE_ID_ICI",{
+    pseudo: this.pseudo.value,
+    plateforme: this.plateforme.value,
+    email: this.email.value
+  }).then(function(){
+    document.getElementById("msg").innerHTML =
+      "✅ Inscription envoyée avec succès";
+  }, function(){
+    document.getElementById("msg").innerHTML =
+      "❌ Erreur lors de l’envoi";
+  });
+});
+</script>
+
+</body>
+</html>
