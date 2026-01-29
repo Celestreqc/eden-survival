@@ -163,7 +163,7 @@ function renderCart(){
         <span>${item.price}</span>
       </div>`;
   });
-  cartDiv.innerHTML = html || "Panier vide";
+  cartDiv.innerHTML = html ||
   totalDiv.innerText =
     `Total : ${total} Element ≈ ${(total/RATE).toFixed(2)} €`;
 }
