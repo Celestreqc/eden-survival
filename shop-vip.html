@@ -2,198 +2,246 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>ARK Ascended — Boutique Serveur</title>
+<title>ARK Ascended — Primal Chaos GOD SHOP</title>
 
 <style>
+:root{
+ --tek:#00ffe1;
+ --chaos:#ff004c;
+ --bg:#030712;
+}
 body{
-  margin:0;
-  font-family:Arial,sans-serif;
-  background:#050914;
-  color:#e6e6e6
+ margin:0;font-family:Segoe UI,Arial;
+ background:radial-gradient(circle at top,#050b1e,#020617);
+ color:#e6e6e6;
+ overflow-x:hidden
 }
+
+/* ====== TEK FX ====== */
+@keyframes glow{
+ 0%{box-shadow:0 0 15px var(--tek)}
+ 50%{box-shadow:0 0 35px var(--tek)}
+ 100%{box-shadow:0 0 15px var(--tek)}
+}
+@keyframes chaos{
+ 0%{box-shadow:0 0 20px var(--chaos)}
+ 50%{box-shadow:0 0 50px var(--chaos)}
+ 100%{box-shadow:0 0 20px var(--chaos)}
+}
+
 header{
-  background:linear-gradient(135deg,#020617,#0f172a);
-  padding:25px;
-  text-align:center;
-  box-shadow:0 0 40px #00ffe144;
-  position:relative
+ padding:30px;text-align:center;
+ background:linear-gradient(135deg,#020617,#0f172a);
+ border-bottom:2px solid #00ffe144
 }
-h1{color:#00ffe1;margin:0}
-.subtitle{opacity:.85}
+h1{color:var(--tek);margin:0;font-size:36px}
+.subtitle{opacity:.8}
 
-.lang{
-  position:absolute;
-  top:15px;
-  right:15px
-}
-.lang button{
-  background:#020617;
-  color:#00ffe1;
-  border:1px solid #00ffe155;
-  margin-left:6px;
-  cursor:pointer;
-  padding:6px 10px
-}
-
-.container{max-width:1400px;margin:auto;padding:20px}
-
-.section{margin-bottom:55px}
+.container{max-width:1700px;margin:auto;padding:25px}
+.section{margin-bottom:80px}
 .section h2{
-  border-left:5px solid #00ffe1;
-  padding-left:12px;
-  color:#00ffe1
+ border-left:6px solid var(--tek);
+ padding-left:14px;color:var(--tek)
 }
 
 .grid{
-  display:grid;
-  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:18px
+ display:grid;
+ grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+ gap:20px
 }
 
 .card{
-  background:#020617;
-  padding:16px;
-  border-radius:14px;
-  box-shadow:0 0 20px #00ffe122;
-  transition:.25s
+ background:#020617;
+ padding:18px;border-radius:16px;
+ border:1px solid #00ffe122;
+ transition:.3s;
 }
-.card:hover{transform:scale(1.04)}
+.card:hover{transform:scale(1.05)}
 
 .price{color:#00ff9d;font-weight:bold}
 
 button{
-  width:100%;
-  padding:10px;
-  margin-top:10px;
-  border:none;
-  border-radius:8px;
-  background:#00ffe1;
-  font-weight:bold;
-  cursor:pointer
+ width:100%;margin-top:10px;
+ padding:11px;border-radius:10px;
+ border:none;font-weight:bold;
+ background:var(--tek);cursor:pointer
 }
-button:hover{background:#00c9b7}
+button:hover{filter:brightness(1.2)}
 
-.vip{
-  border:1px solid #ffd700;
-  box-shadow:0 0 25px #ffd70055
-}
+.origin{animation:glow 3s infinite}
+.celestial{animation:glow 2s infinite}
+.demonic{animation:chaos 2.5s infinite}
+.chaos{animation:chaos 1.5s infinite;border-color:var(--chaos)}
 
+.vip{border:1px solid #ff0066}
+
+/* ===== PANIER ===== */
 #cart{
-  background:#020617;
-  border:1px solid #00ffe133;
-  padding:15px;
-  border-radius:12px
+ background:#020617;
+ padding:15px;border-radius:14px;
+ border:1px solid #00ffe144
 }
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:6px
-}
-.total{
-  margin-top:10px;
-  font-size:18px;
-  color:#00ff9d
-}
-input{
-  width:100%;
-  padding:8px;
-  border-radius:6px;
-  border:none;
-  margin-top:8px
-}
-footer{
-  text-align:center;
-  opacity:.6;
-  padding:20px
-}
+.cart-item{display:flex;justify-content:space-between;margin-bottom:6px}
+.total{margin-top:10px;color:#00ff9d;font-size:20px}
+
+footer{text-align:center;opacity:.6;padding:25px}
 </style>
 </head>
 
 <body>
 
 <header>
-  <div class="lang">
-    <button onclick="setLang('fr')">FR</button>
-    <button onclick="setLang('en')">EN</button>
-  </div>
-
-  <h1 id="title">🛒 Boutique ARK Ascended</h1>
-  <p class="subtitle" id="subtitle">1 € = 100 Element • Économie équilibrée</p>
+<h1>🛒 ARK Ascended — Primal Chaos</h1>
+<p class="subtitle">
+Origin • Celestial • Demonic • Chaos • Ark Descended
+</p>
 </header>
 
 <div class="container">
 
-<!-- PACKS -->
+<!-- PACKS 21 -> 40 -->
 <div class="section">
-<h2>📦 Packs</h2>
+<h2>📦 Packs End-Game (21 → 40)</h2>
+<div class="grid" id="packs"></div>
+</div>
+
+<!-- PRIMAL TIERS -->
+<div class="section">
+<h2>🔥 Primal Tiers</h2>
+<div class="grid">
+
+<div class="card origin">
+<h3>Origin Tier</h3>
+<p>Dino Origin • Stuff Origin • Progression stable</p>
+<p class="price">10 000 Element</p>
+<button onclick="add('Origin Tier',10000)">Ajouter</button>
+</div>
+
+<div class="card celestial">
+<h3>Celestial Tier</h3>
+<p>Dino Celestial • capacités spéciales</p>
+<p class="price">15 000 Element</p>
+<button onclick="add('Celestial Tier',15000)">Ajouter</button>
+</div>
+
+<div class="card demonic">
+<h3>Demonic Tier</h3>
+<p>Dino Demonic • aura • dégâts massifs</p>
+<p class="price">22 000 Element</p>
+<button onclick="add('Demonic Tier',22000)">Ajouter</button>
+</div>
+
+<div class="card chaos vip">
+<h3>Chaos Tier</h3>
+<p>Dino Chaos • mutation parfaite • prestige</p>
+<p class="price">35 000 Element</p>
+<button onclick="add('Chaos Tier',35000)">Ajouter</button>
+</div>
+
+</div>
+</div>
+
+<!-- ARK DESCENDED -->
+<div class="section">
+<h2>🧬 Ark Descended — Ascension</h2>
 <div class="grid">
 
 <div class="card">
-<h3>Pack Starter</h3>
-<p>Outils métal • Armure légère • Skins</p>
-<p class="price">GRATUIT</p>
+<h3>Descended Hero</h3>
+<p>Équipement évolutif • bonus XP</p>
+<p class="price">7 500 Element</p>
+<button onclick="add('Descended Hero',7500)">Ajouter</button>
 </div>
 
-<div class="card">
-<h3>Pack Guerrier</h3>
-<p>Flak • Shotgun • Munitions</p>
-<p class="price">GRATUIT</p>
+<div class="card vip">
+<h3>Descended Legend</h3>
+<p>Reliques • accès contenu caché</p>
+<p class="price">12 000 Element</p>
+<button onclick="add('Descended Legend',12000)">Ajouter</button>
 </div>
 
-<div class="card">
-<h3>Pack Constructeur</h3>
-<p>Structures métal complètes</p>
-<p class="price">2 500 Element</p>
-<button onclick="add('Pack Constructeur',2500)">Ajouter</button>
-</div>
-
-<div class="card">
-<h3>Pack Endgame</h3>
-<p>Équipement Tek • Avancé</p>
-<p class="price">4 500 Element</p>
-<button onclick="add('Pack Endgame',4500)">Ajouter</button>
+<div class="card chaos">
+<h3>Descended GOD</h3>
+<p>Ascension max • skins exclusifs</p>
+<p class="price">20 000 Element</p>
+<button onclick="add('Descended GOD',20000)">Ajouter</button>
 </div>
 
 </div>
 </div>
 
-<!-- VIP -->
+<!-- PANIER -->
 <div class="section">
-<h2>⭐ Packs VIP</h2>
-<div class="grid">
+<h2>🛒 Panier</h2>
 
-<div class="card vip">
-<h3>VIP Argent</h3>
-<p>Kits mensuels • Skins</p>
-<p class="price">1 500 Element</p>
-<button onclick="add('VIP Argent',1500)">Ajouter</button>
-</div>
+<div id="cart">Panier vide</div>
+<div class="total" id="total"></div>
 
-<div class="card vip">
-<h3>VIP Or</h3>
-<p>Bonus récolte • Accès VIP</p>
-<p class="price">3 000 Element</p>
-<button onclick="add('VIP Or',3000)">Ajouter</button>
-</div>
+<a href="https://paypal.me/LegacySurvivals" target="_blank">
+<button style="background:#ffc439;color:#111">
+💳 Payer avec PayPal
+</button>
+</a>
 
-<div class="card vip">
-<h3>VIP Tek</h3>
-<p>Skins Tek • Priorité staff</p>
-<p class="price">6 000 Element</p>
-<button onclick="add('VIP Tek',6000)">Ajouter</button>
+<p style="font-size:13px;opacity:.7">
+💡 Indique le montant exact dans PayPal puis ouvre un ticket Discord
+</p>
 </div>
 
 </div>
+
+<footer>
+Serveur Legacy Survival • Primal Chaos • Ark Descended
+</footer>
+
+<script>
+const RATE=100;
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+const cartDiv=document.getElementById("cart");
+const totalDiv=document.getElementById("total");
+
+const packs=[];
+for(let i=21;i<=40;i++){
+ packs.push({
+  name:`Pack ${i}`,
+  price:10000+(i*800),
+  desc:`Progression ultime niveau ${i}`
+ });
+}
+
+document.getElementById("packs").innerHTML=
+packs.map(p=>`
+<div class="card">
+<h3>${p.name}</h3>
+<p>${p.desc}</p>
+<p class="price">${p.price} Element</p>
+<button onclick="add('${p.name}',${p.price})">Ajouter</button>
 </div>
+`).join("");
 
-<!-- FARM / CROPS -->
-<div class="section">
-<h2>🌱 Seed Farm & Agriculture</h2>
-<div class="grid">
+function add(name,price){
+ cart.push({name,price});
+ localStorage.setItem("cart",JSON.stringify(cart));
+ render();
+}
 
-<div class="card"><h3>Petit Crop Plot</h3><p class="price">50</p><button onclick="add('Petit Crop Plot',50)">+</button></div>
-<div class="card"><h3>Moyen Crop Plot</h3><p class="price">80</p><button onclick="add('Moyen Crop Plot',80)">+</button></div>
-<div class="card"><h3>Grand Crop Plot</h3><p class="price">120</p><button onclick="add('Grand Crop Plot',120)">+</button></div>
+function render(){
+ let total=0;
+ cartDiv.innerHTML="";
+ cart.forEach(i=>{
+  total+=i.price;
+  cartDiv.innerHTML+=
+   `<div class="cart-item">
+     <span>${i.name}</span>
+     <span>${i.price}</span>
+    </div>`;
+ });
+ if(!cart.length) cartDiv.innerText="Panier vide";
+ totalDiv.innerText=
+  `Total : ${total} Element ≈ ${(total/RATE).toFixed(2)} €`;
+}
+render();
+</script>
 
-<div class="card"><h3>Seed Farm Starter</h3><p>Citronal • Rockarrot • Savoroot</p><p class="price">500</p><button onclick="add('Seed Farm Starter',500)">+</but
-
+</body>
+</html>
