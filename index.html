@@ -1,1 +1,195 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>EDEN SURVIVAL — ARK Ascended x20</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#0b1d26,#02090d);
+  color:#e5f7ff;
+}
+nav{
+  position:fixed;
+  top:0;width:100%;
+  background:#02090d;
+  z-index:999;
+  box-shadow:0 0 20px rgba(0,229,255,.3)
+}
+nav ul{
+  display:flex;
+  justify-content:center;
+  align-items:center;
+  gap:25px;
+  list-style:none;
+  padding:15px;
+  margin:0;
+  flex-wrap:wrap
+}
+nav a,nav button{
+  color:#e5f7ff;
+  text-decoration:none;
+  background:none;
+  border:none;
+  font-weight:bold;
+  cursor:pointer;
+  transition:.3s
+}
+nav a:hover,nav button:hover{color:#00e5ff}
+
+header{
+  background:url("https://ark.wiki.gg/images/9/9e/ARK_Survival_Ascended_keyart.jpg") center/cover;
+  padding:120px 20px;
+  text-align:center
+}
+header h1{
+  font-size:3.2rem;
+  text-shadow:0 0 20px #00e5ff
+}
+.btn{
+  display:inline-block;
+  padding:14px 32px;
+  border-radius:30px;
+  background:#00e5ff;
+  color:#02090d;
+  font-weight:bold;
+  text-decoration:none;
+  margin-top:25px;
+  box-shadow:0 0 20px #00e5ff;
+  transition:.3s
+}
+.btn:hover{
+  transform:scale(1.08);
+  box-shadow:0 0 35px #7ff6ff
+}
+section{
+  max-width:1100px;
+  margin:auto;
+  padding:70px 20px
+}
+h2{
+  color:#00e5ff;
+  border-left:4px solid #00e5ff;
+  padding-left:12px
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:25px;
+  margin-top:30px
+}
+.card{
+  background:rgba(255,255,255,.05);
+  padding:20px;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,229,255,.15);
+  transition:.3s
+}
+.card:hover{transform:translateY(-6px)}
+footer{
+  background:#02090d;
+  padding:30px;
+  text-align:center;
+  opacity:.7
+}
+.stat{
+  font-size:2rem;
+  color:#7ff6ff
+}
+</style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+  <li><a href="#">Accueil</a></li>
+  <li><a href="#stats">Stats</a></li>
+  <li><a href="parametres.html">Paramètres</a></li>
+  <li><a href="mods.html">Mods</a></li>
+  <li><a href="inscription.html" style="color:#00e5ff;">Inscription</a></li>
+  <li><a href="#support">Support</a></li>
+  <li><button onclick="setLang('fr')">🇫🇷</button><button onclick="setLang('en')">🇬🇧</button></li>
+</ul>
+</nav>
+
+<div style="height:80px"></div>
+
+<header>
+<h1 data-i18n="title">EDEN SURVIVAL</h1>
+<p data-i18n="subtitle"><strong>ARK Ascended • x20 • PVE</strong><br>Un monde brutal forgé pour durer.</p>
+<a href="inscription.html" class="btn" data-i18n="join">S'inscrire au serveur</a>
+</header>
+
+<section>
+<h2 data-i18n="about">🌍 Présentation</h2>
+<p>
+Serveur ARK Ascended PVE pensé pour une progression rapide, fluide et durable.
+Admins actifs, aucun wipe, expérience optimisée.
+</p>
+</section>
+
+<section id="stats">
+<h2 data-i18n="stats">📊 Stats serveur</h2>
+<div class="grid">
+  <div class="card"><div class="stat">x20</div>XP & Récolte</div>
+  <div class="card"><div class="stat">Instant</div>Tame</div>
+  <div class="card"><div class="stat">40+</div>Mods</div>
+  <div class="card"><div class="stat">200</div>Dinos max</div>
+  <div class="card"><div class="stat">x2500</div>Stack</div>
+  <div class="card"><div class="stat">No wipe</div>Serveur long terme</div>
+</div>
+</section>
+
+<section>
+<h2>🗺️ Maps</h2>
+<div class="grid">
+  <div class="card">
+    <h3>Ragnarok</h3>
+    <img src="https://ark.wiki.gg/images/6/6d/Ragnarok_Map.jpg" style="width:100%;border-radius:10px">
+  </div>
+  <div class="card">
+    <h3>Valguero</h3>
+    <img src="https://ark.wiki.gg/images/9/9c/Valguero_Map.jpg" style="width:100%;border-radius:10px">
+  </div>
+</div>
+</section>
+
+<section id="support">
+<h2>🛠️ Support</h2>
+<p>Un problème ? Une question ? Rejoins le Discord officiel.</p>
+<a class="btn" href="https://discord.gg/TONLIEN" target="_blank">Discord Eden Survival</a>
+</section>
+
+<footer>
+© 2026 — Eden Survival • ARK Ascended • Serveur communautaire
+</footer>
+
+<script>
+const translations={
+fr:{
+title:"EDEN SURVIVAL",
+subtitle:"ARK Ascended • x20 • PVE — Un monde brutal forgé pour durer.",
+join:"S'inscrire au serveur",
+about:"🌍 Présentation",
+stats:"📊 Stats serveur"
+},
+en:{
+title:"EDEN SURVIVAL",
+subtitle:"ARK Ascended • x20 • PVE — A brutal world forged to last.",
+join:"Register to the server",
+about:"🌍 About",
+stats:"📊 Server stats"
+}};
+function setLang(l){
+document.querySelectorAll("[data-i18n]").forEach(e=>{
+let k=e.dataset.i18n;
+if(translations[l][k])e.textContent=translations[l][k];
+});
+localStorage.setItem("lang",l);
+}
+setLang(localStorage.getItem("lang"
 
