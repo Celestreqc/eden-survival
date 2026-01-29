@@ -4,34 +4,70 @@
 <meta charset="UTF-8">
 <title>Inscription — Eden Survival</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<script src="https://challenges.cloudflare.com/turnstile/v0/api.js" async defer></script>
+
 <style>
-body{font-family:Arial;background:#0b1d26;color:#e5f7ff;padding:40px}
-input,select{width:100%;padding:12px;margin:10px 0;border-radius:8px;border:none}
-button{padding:14px 30px;border:none;border-ra
-<h1>📝 Inscription Eden Survival</h1>
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#0b1d26,#02090d);
+  color:#e5f7ff;
+}
+nav{
+  position:fixed;top:0;width:100%;
+  background:#02090d;z-index:1000;
+  box-shadow:0 0 15px rgba(0,229,255,.3)
+}
+nav ul{
+  list-style:none;display:flex;
+  justify-content:center;gap:20px;
+  padding:15px;margin:0;flex-wrap:wrap
+}
+nav a{
+  color:#e5f7ff;text-decoration:none;
+  font-weight:bold
+}
+nav a:hover{color:#00e5ff}
+.highlight{
+  color:#00e5ff;
+  text-shadow:0 0 10px #00e5ff
+}
+main{
+  max-width:800px;
+  margin:auto;
+  padding:120px 20px 60px
+}
+.card{
+  background:rgba(255,255,255,.05);
+  padding:25px;
+  border-radius:12px;
+  box-shadow:0 0 20px rgba(0,229,255,.2)
+}
+input,select,button{
+  width:100%;
+  padding:12px;
+  margin:10px 0;
+  border-radius:8px;
+  border:none;
+  font-size:1rem
+}
+button{
+  background:#00e5ff;
+  color:#02090d;
+  font-weight:bold;
+  cursor:pointer;
+  box-shadow:0 0 15px #00e5ff;
+  transition:.3s
+}
+button:hover{transform:scale(1.05)}
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.7
+}
+</style>
+</head>
 
-<form>
-<input placeholder="Pseudo ARK" required><br><br>
-<select>
-<option>PC</option>
-<option>PlayStation</option>
-<option>Xbox</option>
-</select><br><br>
+<body>
 
-<input placeholder="Discord (optionnel)"><br><br>
-
-<!-- CAPTCHA VISUEL -->
-<label>
-<input type="checkbox" required>
-Je ne suis pas un robot
-</label><br><br>
-
-<button>S’inscrire</button>
-</form>
-
-<p style="font-size:.9rem;opacity:.7">
-🔒 Les données ne sont pas stockées.  
-📩 Validation finale via Discord.
-</p>
+<nav>
 
