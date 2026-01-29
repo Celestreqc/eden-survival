@@ -78,7 +78,7 @@ footer{text-align:center;opacity:.6;padding:20px}
 
 <!-- PACKS 1 → 20 -->
 <div class="section">
-<h2>📦 Packs Progression (1 → 20)</h2>
+<h2>📦 Packs (1 → 20)</h2>
 <div class="grid" id="packsEarly"></div>
 </div>
 
@@ -116,14 +116,13 @@ const totalDiv   = document.getElementById("total");
 
 let cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-// Packs 1 → 20
+// Packs 1 → 20 (SANS description)
 let htmlEarly = "";
 for(let i=1;i<=20;i++){
   let price = 300 + (i * 250);
   htmlEarly += `
     <div class="card">
       <h3>Pack ${i}</h3>
-      <p>Progression début / mid-game</p>
       <p class="price">${price} Element</p>
       <button onclick="addToCart('Pack ${i}',${price})">
         Ajouter
@@ -139,7 +138,6 @@ for(let i=21;i<=40;i++){
   htmlLate += `
     <div class="card">
       <h3>Pack ${i}</h3>
-      <p>Progression end-game</p>
       <p class="price">${price} Element</p>
       <button onclick="addToCart('Pack ${i}',${price})">
         Ajouter
