@@ -1,9 +1,10 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Shop VIP — Eden Survival</title>
+  <meta charset="UTF-8">
+  <title>Eden Survival — ARK Ascended x20</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
   <style>
     body {
       margin: 0;
@@ -11,117 +12,210 @@
       background: linear-gradient(180deg, #0b1d26, #02090d);
       color: #e5f7ff;
     }
-    header {
-      padding: 60px 20px;
-      text-align: center;
+
+    /* ===== MENU ===== */
+    .navbar {
+      position: fixed;
+      top: 0;
+      width: 100%;
       background: #02090d;
-      box-shadow: 0 0 20px rgba(0,229,255,0.2);
+      box-shadow: 0 0 15px rgba(0,229,255,0.3);
+      z-index: 1000;
     }
-    h1 {
-      color: #00e5ff;
-      text-shadow: 0 0 15px #00e5ff;
-    }
-    section {
-      padding: 60px 20px;
-      max-width: 1100px;
-      margin: auto;
-    }
-    .grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+
+    .navbar ul {
+      list-style: none;
+      display: flex;
+      justify-content: center;
       gap: 25px;
-      margin-top: 40px;
+      margin: 0;
+      padding: 15px;
     }
-    .card {
-      background: rgba(255, 255, 255, 0.05);
-      border-radius: 14px;
-      padding: 25px;
-      box-shadow: 0 0 25px rgba(0,229,255,0.12);
+
+    .navbar a {
+      text-decoration: none;
+      color: #e5f7ff;
+      font-weight: bold;
+      transition: 0.3s;
     }
-    .card h3 {
-      color: #7ff6ff;
-      margin-top: 0;
-    }
-    .badge {
-      display: inline-block;
-      padding: 6px 14px;
-      border-radius: 20px;
-      background: rgba(0,229,255,0.15);
+
+    .navbar a:hover {
       color: #00e5ff;
-      font-size: 0.85rem;
-      margin-bottom: 10px;
+      text-shadow: 0 0 10px #00e5ff;
     }
+
+    .spacer {
+      height: 70px;
+    }
+
+    /* ===== HERO ===== */
+    header {
+      background: url("https://images.unsplash.com/photo-1601758064130-64d8b5c37f64") center/cover no-repeat;
+      text-align: center;
+      padding: 100px 20px;
+    }
+
+    header h1 {
+      font-size: 3.2rem;
+      text-shadow: 0 0 20px #00e5ff;
+    }
+
+    header p {
+      font-size: 1.2rem;
+      max-width: 800px;
+      margin: 20px auto;
+    }
+
     .btn {
       display: inline-block;
+      padding: 15px 30px;
       margin-top: 20px;
-      padding: 12px 26px;
       background: #00e5ff;
       color: #02090d;
+      font-weight: bold;
       text-decoration: none;
       border-radius: 30px;
-      font-weight: bold;
-      box-shadow: 0 0 20px #00e5ff;
+      box-shadow: 0 0 25px #00e5ff;
+      transition: 0.3s;
     }
+
+    .btn:hover {
+      background: #7ff6ff;
+      transform: scale(1.05);
+    }
+
+    /* ===== SECTIONS ===== */
+    section {
+      max-width: 1100px;
+      margin: auto;
+      padding: 60px 20px;
+    }
+
+    h2 {
+      color: #00e5ff;
+      border-left: 4px solid #00e5ff;
+      padding-left: 12px;
+      margin-bottom: 25px;
+    }
+
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 20px;
+    }
+
+    .card {
+      background: rgba(255,255,255,0.05);
+      border-radius: 12px;
+      padding: 20px;
+      box-shadow: 0 0 20px rgba(0,229,255,0.15);
+      transition: 0.3s;
+    }
+
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 0 30px rgba(0,229,255,0.35);
+    }
+
+    .card h3 {
+      color: #7ff6ff;
+    }
+
+    .card img {
+      width: 100%;
+      border-radius: 10px;
+      margin-top: 10px;
+    }
+
+    /* ===== FOOTER ===== */
     footer {
       background: #02090d;
       text-align: center;
-      padding: 30px 15px;
-      font-size: 0.9rem;
+      padding: 30px;
       opacity: 0.8;
+      font-size: 0.9rem;
     }
   </style>
 </head>
+
 <body>
 
+<!-- MENU -->
+<nav class="navbar">
+  <ul>
+    <li><a href="index.html">Accueil</a></li>
+    <li><a href="mods.html">Mods</a></li>
+    <li><a href="shop-vip.html">Shop VIP</a></li>
+    <li><a href="inscription.html">Inscription</a></li>
+    <li><a href="support.html">Support</a></li>
+  </ul>
+</nav>
+
+<div class="spacer"></div>
+
+<!-- HERO -->
 <header>
-  <h1>⭐ Shop VIP — Eden Survival</h1>
-  <p>Avantages <strong>cosmétiques & qualité de vie uniquement</strong></p>
-  <p><strong>🚫 Aucun Pay-to-Win — aucun avantage gameplay</strong></p>
+  <h1>EDEN SURVIVAL</h1>
+  <p>
+    ARK Ascended • Serveur PVE x20<br>
+    Survie moderne, Primal Chaos, progression fluide et durable.
+  </p>
+  <a href="inscription.html" class="btn">📝 S’inscrire au serveur</a>
 </header>
 
+<!-- PRESENTATION -->
 <section>
+  <h2>🌍 Pourquoi Eden Survival ?</h2>
   <div class="grid">
     <div class="card">
-      <span class="badge">VIP Bronze</span>
-      <h3>Survivant Soutien</h3>
+      <h3>⚙️ Paramètres optimisés</h3>
       <ul>
-        <li>🎨 Couleurs dinos / structures exclusives</li>
-        <li>🏷️ Titre Discord VIP Bronze</li>
-        <li>✨ Skin cosmétique</li>
-        <li>🎁 Kit cosmétique de bienvenue</li>
+        <li>XP x20</li>
+        <li>Récolte x20</li>
+        <li>Tame instant</li>
+        <li>Stack x2500</li>
+        <li>Poids x5 joueurs & dinos</li>
       </ul>
+      <img src="https://ark.wiki.gg/images/thumb/6/6d/Ragnarok_Map.jpg/400px-Ragnarok_Map.jpg">
     </div>
 
     <div class="card">
-      <span class="badge">VIP Argent</span>
-      <h3>Survivant Élite</h3>
-      <ul>
-        <li>🎨 Toutes les couleurs VIP</li>
-        <li>🦖 Skins dinos avancés</li>
-        <li>🏷️ Titre Discord VIP Argent</li>
-        <li>🧱 Skins structures</li>
-      </ul>
+      <h3>🧩 Mods Primal Chaos</h3>
+      <p>Plus de 40 mods soigneusement sélectionnés pour une expérience puissante mais stable.</p>
+      <img src="https://ark.wiki.gg/images/thumb/5/5e/Giganotosaurus.png/400px-Giganotosaurus.png">
     </div>
 
     <div class="card">
-      <span class="badge">VIP Or</span>
-      <h3>Champion d’Eden</h3>
+      <h3>🛡️ Serveur stable</h3>
       <ul>
-        <li>🌈 Skins rares & animations</li>
-        <li>🦕 Skins dinos premium</li>
-        <li>🏷️ Titre Discord VIP Or</li>
-        <li>🎭 Accès cosmétiques saisonniers</li>
+        <li>Aucun wipe</li>
+        <li>Admins actifs</li>
+        <li>PVE sans grief</li>
+        <li>Week-ends boost</li>
       </ul>
     </div>
-  </div>
-
-  <div style="text-align:center;margin-top:50px;">
-    <a class="btn" href="#">Ouvrir un ticket Discord</a>
   </div>
 </section>
 
+<!-- STATS -->
+<section>
+  <h2>📊 Stats Serveur</h2>
+  <div class="grid">
+    <div class="card"><h3>🗺️ Maps</h3><p>Ragnarok • Valguero</p></div>
+    <div class="card"><h3>🐾 Limite dinos</h3><p>200 par tribu</p></div>
+    <div class="card"><h3>🔥 Week-end boost</h3><p>XP & Récolte x30</p></div>
+  </div>
+</section>
+
+<!-- DISCORD -->
+<section>
+  <h2>💬 Rejoindre la communauté</h2>
+  <p>Tout passe par Discord : infos, support, annonces.</p>
+  <a href="#" class="btn">Rejoindre le Discord</a>
+</section>
+
 <footer>
-  <p>© 2026 — Eden Survival • VIP cosmétique & QoL uniquement</p>
+  © 2026 — Eden Survival • ARK Ascended • Serveur communautaire
 </footer>
 
 </body>
