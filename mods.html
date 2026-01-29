@@ -4,28 +4,128 @@
 <meta charset="UTF-8">
 <title>Mods — Eden Survival</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
 <style>
-body{font-family:Arial;background:#0b1d26;color:#e5f7ff;padding:40px}
-.card{background:#02090d;padding:20px;border-radius:10px;margin-bottom:15px}
-a{color:#00e5ff}
+body{
+  margin:0;
+  font-family:Arial,Helvetica,sans-serif;
+  background:linear-gradient(180deg,#0b1d26,#02090d);
+  color:#e5f7ff;
+}
+nav{
+  position:fixed;top:0;width:100%;
+  background:#02090d;z-index:1000;
+  box-shadow:0 0 15px rgba(0,229,255,.3)
+}
+nav ul{
+  list-style:none;display:flex;
+  justify-content:center;gap:20px;
+  padding:15px;margin:0;flex-wrap:wrap
+}
+nav a{color:#e5f7ff;text-decoration:none;font-weight:bold}
+nav a:hover{color:#00e5ff}
+main{
+  max-width:1100px;
+  margin:auto;
+  padding:120px 20px 60px
+}
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(250px,1fr));
+  gap:20px
+}
+.mod{
+  background:rgba(255,255,255,.05);
+  border-radius:12px;
+  padding:20px;
+  box-shadow:0 0 15px rgba(0,229,255,.15);
+  transition:.3s;
+  text-align:center
+}
+.mod:hover{transform:translateY(-6px)}
+.mod img{
+  width:96px;
+  border-radius:12px;
+  margin-bottom:10px
+}
+.mod a{
+  color:#00e5ff;
+  text-decoration:none;
+  font-weight:bold
+}
+footer{
+  text-align:center;
+  padding:30px;
+  opacity:.7
+}
 </style>
 </head>
+
 <body>
 
-<h1>🧩 Mods du Serveur</h1>
+<nav>
+<ul>
+  <li><a href="index.html">Accueil</a></li>
+  <li><a href="parametres.html">Paramètres</a></li>
+  <li><a href="mods.html" style="color:#00e5ff">Mods</a></li>
+  <li><a href="shop-vip.html">Shop VIP</a></li>
+  <li><a href="inscription.html">Inscription</a></li>
+</ul>
+</nav>
 
-<div class="card">
-<h3>Primal Chaos</h3>
-<a href="https://www.curseforge.com/ark-survival-ascended" target="_blank">Voir sur CurseForge</a>
+<main>
+<h1>🧩 Mods du Serveur Eden Survival</h1>
+<p>Liste des mods utilisés sur le serveur (CurseForge officiel).</p>
+
+<div class="grid">
+
+<!-- MOD 1 -->
+<div class="mod">
+<img src="https://media.forgecdn.net/avatars/960/840/638456182615114480.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/primal-chaos" target="_blank">
+Primal Chaos
+</a>
 </div>
 
-<div class="card">
-<h3>Structures Plus</h3>
-<a href="https://www.curseforge.com/ark-survival-ascended" target="_blank">Voir sur CurseForge</a>
+<!-- MOD 2 -->
+<div class="mod">
+<img src="https://media.forgecdn.net/avatars/983/228/638488183417332913.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/super-structures-ascended" target="_blank">
+Super Structures Ascended
+</a>
 </div>
 
-<p>+40 mods optimisés (QoL, dinos, structures, équilibrage)</p>
+<!-- MOD 3 -->
+<div class="mod">
+<img src="https://media.forgecdn.net/avatars/982/876/638487709901636024.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/awesome-spyglass-ascended" target="_blank">
+Awesome Spyglass Ascended
+</a>
+</div>
 
-</body>
-</html>
+<!-- MOD 4 -->
+<div class="mod">
+<img src="https://media.forgecdn.net/avatars/982/645/638487408845536229.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/upgrade-station-ascended" target="_blank">
+Upgrade Station Ascended
+</a>
+</div>
 
+<!-- MOD 5 -->
+<div class="mod">
+<img src="https://media.forgecdn.net/avatars/983/025/638487912836496227.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/stackme-more" target="_blank">
+StackMe More
+</a>
+</div>
+
+<!-- MOD 6 -->
+<div class="mod">
+<img src="https://media.forgecdn.net/avatars/983/118/638488017682936949.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/dino-storage-ascended" target="_blank">
+Dino Storage Ascended
+</a>
+</div>
+
+<!-- MOD 7 -->
+<div class
