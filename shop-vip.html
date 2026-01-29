@@ -47,23 +47,13 @@ button{
   cursor:pointer;
   font-weight:bold;
 }
-#cart{
-  background:#020617;
-  padding:15px;
-  border-radius:12px;
-  border:1px solid #00ffe144;
-}
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:5px;
-}
-.total{
-  margin-top:10px;
-  font-size:18px;
-  color:#00ff9d;
-}
+button:hover{filter:brightness(1.2)}
 footer{text-align:center;opacity:.6;padding:20px}
+.paypal{
+  max-width:400px;
+  margin:40px auto;
+  text-align:center;
+}
 </style>
 </head>
 
@@ -88,35 +78,28 @@ footer{text-align:center;opacity:.6;padding:20px}
 <div class="grid" id="packsLate"></div>
 </div>
 
-<!-- PANIER -->
-<div class="section">
-<h2>🛒 Panier</h2>
-<div id="cart">Panier vide</div>
-<div class="total" id="total"></div>
-
+<!-- PAYPAL -->
+<div class="paypal">
 <a href="https://paypal.me/LegacySurvivals" target="_blank">
 <button style="background:#ffc439;color:#111">
 💳 Payer avec PayPal
 </button>
 </a>
+<p style="font-size:13px;opacity:.7">
+💡 Indique le pack choisi dans la note PayPal<br>
+📩 Livraison via ticket Discord
+</p>
 </div>
 
 </div>
 
 <footer>
-Legacy Survival • ARK Ascended
+Legacy Survival • ARK Ascended • Primal Chaos
 </footer>
 
 <script>
-const RATE = 100;
+// Packs 1 → 20
 const packsEarly = document.getElementById("packsEarly");
-const packsLate  = document.getElementById("packsLate");
-const cartDiv    = document.getElementById("cart");
-const totalDiv   = document.getElementById("total");
-
-let cart = JSON.parse(localStorage.getItem("cart")) || [];
-
-// Packs 1 → 20 (SANS description)
 let htmlEarly = "";
 for(let i=1;i<=20;i++){
   let price = 300 + (i * 250);
@@ -124,14 +107,15 @@ for(let i=1;i<=20;i++){
     <div class="card">
       <h3>Pack ${i}</h3>
       <p class="price">${price} Element</p>
-      <button onclick="addToCart('Pack ${i}',${price})">
-        Ajouter
+      <button onclick="window.open('https://paypal.me/LegacySurvivals','_blank')">
+        Acheter
       </button>
     </div>`;
 }
 packsEarly.innerHTML = htmlEarly;
 
 // Packs 21 → 40
+const packsLate = document.getElementById("packsLate");
 let htmlLate = "";
 for(let i=21;i<=40;i++){
   let price = 300 + (i * 350);
@@ -139,37 +123,14 @@ for(let i=21;i<=40;i++){
     <div class="card">
       <h3>Pack ${i}</h3>
       <p class="price">${price} Element</p>
-      <button onclick="addToCart('Pack ${i}',${price})">
-        Ajouter
+      <button onclick="window.open('https://paypal.me/LegacySurvivals','_blank')">
+        Acheter
       </button>
     </div>`;
 }
 packsLate.innerHTML = htmlLate;
-
-function addToCart(name,price){
-  cart.push({name,price});
-  localStorage.setItem("cart",JSON.stringify(cart));
-  renderCart();
-}
-
-function renderCart(){
-  let total = 0;
-  let html = "";
-  cart.forEach(item=>{
-    total += item.price;
-    html += `
-      <div class="cart-item">
-        <span>${item.name}</span>
-        <span>${item.price}</span>
-      </div>`;
-  });
-  cartDiv.innerHTML = html ||
-  totalDiv.innerText =
-    `Total : ${total} Element ≈ ${(total/RATE).toFixed(2)} €`;
-}
-
-renderCart();
 </script>
 
 </body>
 </html>
+
