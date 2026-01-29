@@ -1,10 +1,9 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-  <meta charset="UTF-8">
-  <title>Eden Survival — ARK Ascended x20</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>ARK Ascended — Eden Survival x20</title>
   <style>
     body {
       margin: 0;
@@ -12,210 +11,204 @@
       background: linear-gradient(180deg, #0b1d26, #02090d);
       color: #e5f7ff;
     }
-
-    /* ===== MENU ===== */
-    .navbar {
-      position: fixed;
-      top: 0;
-      width: 100%;
-      background: #02090d;
-      box-shadow: 0 0 15px rgba(0,229,255,0.3);
-      z-index: 1000;
-    }
-
-    .navbar ul {
-      list-style: none;
-      display: flex;
-      justify-content: center;
-      gap: 25px;
-      margin: 0;
-      padding: 15px;
-    }
-
-    .navbar a {
-      text-decoration: none;
-      color: #e5f7ff;
-      font-weight: bold;
-      transition: 0.3s;
-    }
-
-    .navbar a:hover {
-      color: #00e5ff;
-      text-shadow: 0 0 10px #00e5ff;
-    }
-
-    .spacer {
-      height: 70px;
-    }
-
-    /* ===== HERO ===== */
     header {
-      background: url("https://images.unsplash.com/photo-1601758064130-64d8b5c37f64") center/cover no-repeat;
+      background: url('https://images.unsplash.com/photo-1601758064130-64d8b5c37f64') center/cover no-repeat;
+      padding: 80px 20px;
       text-align: center;
-      padding: 100px 20px;
     }
-
     header h1 {
-      font-size: 3.2rem;
-      text-shadow: 0 0 20px #00e5ff;
+      font-size: 3rem;
+      margin-bottom: 10px;
+      text-shadow: 0 0 15px #00e5ff;
     }
-
     header p {
       font-size: 1.2rem;
       max-width: 800px;
-      margin: 20px auto;
+      margin: auto;
     }
-
-    .btn {
-      display: inline-block;
-      padding: 15px 30px;
-      margin-top: 20px;
-      background: #00e5ff;
-      color: #02090d;
-      font-weight: bold;
-      text-decoration: none;
-      border-radius: 30px;
-      box-shadow: 0 0 25px #00e5ff;
-      transition: 0.3s;
-    }
-
-    .btn:hover {
-      background: #7ff6ff;
-      transform: scale(1.05);
-    }
-
-    /* ===== SECTIONS ===== */
     section {
+      padding: 60px 20px;
       max-width: 1100px;
       margin: auto;
-      padding: 60px 20px;
     }
-
     h2 {
       color: #00e5ff;
       border-left: 4px solid #00e5ff;
       padding-left: 12px;
-      margin-bottom: 25px;
     }
-
     .grid {
       display: grid;
       grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
       gap: 20px;
+      margin-top: 30px;
     }
-
     .card {
-      background: rgba(255,255,255,0.05);
+      background: rgba(255, 255, 255, 0.05);
       border-radius: 12px;
       padding: 20px;
-      box-shadow: 0 0 20px rgba(0,229,255,0.15);
-      transition: 0.3s;
+      box-shadow: 0 0 20px rgba(0, 229, 255, 0.1);
     }
-
-    .card:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 0 30px rgba(0,229,255,0.35);
-    }
-
     .card h3 {
       color: #7ff6ff;
+      margin-top: 0;
     }
-
-    .card img {
-      width: 100%;
-      border-radius: 10px;
-      margin-top: 10px;
-    }
-
-    /* ===== FOOTER ===== */
     footer {
       background: #02090d;
       text-align: center;
-      padding: 30px;
-      opacity: 0.8;
+      padding: 30px 15px;
       font-size: 0.9rem;
+      opacity: 0.8;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 25px;
+      padding: 14px 28px;
+      background: #00e5ff;
+      color: #02090d;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 0 20px #00e5ff;
+    }
+    .btn:hover {
+      background: #7ff6ff;
     }
   </style>
 </head>
-
 <body>
-
-<!-- MENU -->
-<nav class="navbar">
-  <ul>
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="mods.html">Mods</a></li>
-    <li><a href="shop-vip.html">Shop VIP</a></li>
-    <li><a href="inscription.html">Inscription</a></li>
-    <li><a href="support.html">Support</a></li>
+<nav style="position:fixed;top:0;width:100%;background:#02090d;z-index:1000;box-shadow:0 0 15px rgba(0,229,255,0.2);">
+  <ul style="list-style:none;display:flex;justify-content:center;gap:25px;margin:0;padding:15px 10px;">
+    <li><a href="#" style="color:#00e5ff;text-decoration:none;font-weight:bold;">Accueil</a></li>
+    <li><a href="#reglement" style="color:#e5f7ff;text-decoration:none;">Règlement</a></li>
+    <li><a href="#inscription" style="color:#e5f7ff;text-decoration:none;">Inscription</a></li>
+    
+    <li><a href="shop-vip.html" style="color:#7ff6ff;text-decoration:none;">Shop VIP</a></li>
+    <li><a href="#discord" style="color:#e5f7ff;text-decoration:none;">Discord</a></li>
   </ul>
 </nav>
+<div style="height:70px"></div>
 
-<div class="spacer"></div>
-
-<!-- HERO -->
 <header>
   <h1>EDEN SURVIVAL</h1>
-  <p>
-    ARK Ascended • Serveur PVE x20<br>
-    Survie moderne, Primal Chaos, progression fluide et durable.
-  </p>
-  <a href="inscription.html" class="btn">📝 S’inscrire au serveur</a>
+  <p><strong>ARK Ascended • Survival x20</strong><br>Un monde brutal. Une survie maîtrisée. Une légende à écrire.</p>
+  <a class="btn" href="#discord">Rejoindre le Discord</a>
 </header>
 
-<!-- PRESENTATION -->
-<section>
-  <h2>🌍 Pourquoi Eden Survival ?</h2>
+<section id="presentation">
+  <h2>🌍 Eden Survival — L’Expérience Eden</h2>
+  <p>
+    Bienvenue sur <strong>Eden Survival</strong>, un serveur <strong>ARK Ascended</strong> conçu pour offrir une expérience
+    <strong>moderne</strong>, immersive et équilibrée. Ici, la survie reste exigeante, mais fluide et gratifiante.
+  </p>
+  <p>
+    Eden Survival s’adresse aussi bien aux joueurs occasionnels qu’aux survivants hardcore. Chaque base, chaque dino et
+    chaque progression a du sens. Le serveur est pensé pour durer, sans wipe abusif, avec une vraie vision long terme.
+  </p>
   <div class="grid">
     <div class="card">
-      <h3>⚙️ Paramètres optimisés</h3>
+      <h3>⚙️ Paramètres Serveur</h3>
       <ul>
         <li>XP x20</li>
         <li>Récolte x20</li>
         <li>Tame instant</li>
-        <li>Stack x2500</li>
-        <li>Poids x5 joueurs & dinos</li>
+        <li>Élevage accéléré</li>
+        <li>Qualité de vie améliorée</li>
+        <li>Progression rapide mais méritée</li>
       </ul>
-      <img src="https://ark.wiki.gg/images/thumb/6/6d/Ragnarok_Map.jpg/400px-Ragnarok_Map.jpg">
     </div>
-
     <div class="card">
-      <h3>🧩 Mods Primal Chaos</h3>
-      <p>Plus de 40 mods soigneusement sélectionnés pour une expérience puissante mais stable.</p>
-      <img src="https://ark.wiki.gg/images/thumb/5/5e/Giganotosaurus.png/400px-Giganotosaurus.png">
-    </div>
-
-    <div class="card">
-      <h3>🛡️ Serveur stable</h3>
+      <h3>🗺️ Maps Disponibles</h3>
       <ul>
-        <li>Aucun wipe</li>
-        <li>Admins actifs</li>
-        <li>PVE sans grief</li>
-        <li>Week-ends boost</li>
+        <li>Ragnarok</li>
+        <li>Valguero</li>
+        <li>Non Cluster</li>
+      </ul>
+      <img src="https://ark.wiki.gg/images/thumb/6/6d/Ragnarok_Map.jpg/400px-Ragnarok_Map.jpg" style="width:100%;border-radius:10px;margin-top:10px;">
+      <img src="https://ark.wiki.gg/images/thumb/9/9c/Valguero_Map.jpg/400px-Valguero_Map.jpg" style="width:100%;border-radius:10px;margin-top:10px;">
+    </div>
+    <div class="card">
+      <h3>🧩 Mods & Contenu</h3>
+      <ul>
+        <li>+40 mods sélectionnés</li>
+        <li>Primal Chaos</li>
+        <li>Dinos mutés, divins et corrompus</li>
+        <li>Loots et structures custom</li>
+        <li>Optimisation performance</li>
       </ul>
     </div>
   </div>
 </section>
 
-<!-- STATS -->
 <section>
-  <h2>📊 Stats Serveur</h2>
+  <h2>🖼️ L’Univers Eden</h2>
   <div class="grid">
-    <div class="card"><h3>🗺️ Maps</h3><p>Ragnarok • Valguero</p></div>
-    <div class="card"><h3>🐾 Limite dinos</h3><p>200 par tribu</p></div>
-    <div class="card"><h3>🔥 Week-end boost</h3><p>XP & Récolte x30</p></div>
+    <div class="card">
+      <h3>🦖 Dinos Primal Chaos</h3>
+      <p>Des créatures surpuissantes, mutées, divines ou corrompues.</p>
+      <img src="https://ark.wiki.gg/images/thumb/5/5e/Giganotosaurus.png/400px-Giganotosaurus.png" style="width:100%;border-radius:10px;">
+    </div>
+    <div class="card">
+      <h3>🌋 Monde Sauvage</h3>
+      <p>Biomes extrêmes, dangers constants et récompenses rares.</p>
+      <img src="https://ark.wiki.gg/images/thumb/6/6d/Ragnarok_Map.jpg/400px-Ragnarok_Map.jpg" style="width:100%;border-radius:10px;">
+    </div>
+    <div class="card">
+      <h3>🏛️ Vision Eden</h3>
+      <p>Une survie équilibrée qui respecte le temps de jeu et la progression.</p>
+    </div>
   </div>
 </section>
 
-<!-- DISCORD -->
-<section>
-  <h2>💬 Rejoindre la communauté</h2>
-  <p>Tout passe par Discord : infos, support, annonces.</p>
-  <a href="#" class="btn">Rejoindre le Discord</a>
+<section id="reglement">
+  <h2>📜 Règlement & Mode de Jeu</h2>
+  <div class="card">
+    <ul>
+      <li>🌱 Serveur <strong>PVE</strong></li>
+      <li>🤝 Respect obligatoire entre joueurs</li>
+      <li>🚫 Aucun cheat, exploit ou bug abuse</li>
+      <li>🧱 Aucun grief autorisé</li>
+      <li>👮 Admins actifs, justes et présents</li>
+      <li>⚖️ Les décisions admin sont finales</li>
+    </ul>
+  </div>
+</section>
+
+
+
+
+
+<section id="inscription">
+  <h2>📝 Inscription au Serveur</h2>
+  <div class="card">
+    <p>Inscris-toi pour rejoindre officiellement la communauté <strong>Eden Survival</strong>. L’inscription permet un meilleur suivi et l’accès prioritaire aux informations serveur.</p>
+    <form>
+      <label>Pseudo ARK / Steam / Console</label><br>
+      <input type="text" placeholder="Ton pseudo en jeu" style="width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;">
+
+      <label>Plateforme</label><br>
+      <select style="width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;">
+        <option>PC</option>
+        <option>PlayStation</option>
+        <option>Xbox</option>
+      </select>
+
+      <label>Discord (optionnel)</label><br>
+      <input type="text" placeholder="Pseudo#0000" style="width:100%;padding:10px;margin:10px 0;border-radius:8px;border:none;">
+
+      <button type="submit" class="btn">S’inscrire</button>
+      <p style="font-size:0.85rem;opacity:0.7;margin-top:10px;">⚠️ Ce formulaire est informatif. L’accès final se fait via Discord.</p>
+    </form>
+  </div>
+</section>
+
+<section id="discord">
+  <h2>💬 Discord Officiel</h2>
+  <p>Rejoins la communauté Eden Survival.</p>
+  <a class="btn" href="#">Lien Discord à ajouter</a>
 </section>
 
 <footer>
-  © 2026 — Eden Survival • ARK Ascended • Serveur communautaire
+  <p>© 2026 — Eden Survival • ARK Ascended • Serveur communautaire gratuit</p>
 </footer>
 
 </body>
