@@ -2,20 +2,20 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>ARK Ascended Shop</title>
+<title>ARK Ascended — Boutique</title>
 
 <style>
 body{
-  background:#0b0f1a;
-  color:#e6e6e6;
+  margin:0;
   font-family:Arial,sans-serif;
-  margin:0
+  background:#060b16;
+  color:#e6e6e6
 }
 header{
-  background:linear-gradient(135deg,#0f172a,#020617);
+  background:linear-gradient(135deg,#020617,#0f172a);
   padding:25px;
   text-align:center;
-  box-shadow:0 0 30px #00ffe155
+  box-shadow:0 0 40px #00ffe144
 }
 h1{color:#00ffe1}
 .lang{position:absolute;top:15px;right:15px}
@@ -23,34 +23,34 @@ h1{color:#00ffe1}
   background:#020617;
   color:#00ffe1;
   border:1px solid #00ffe155;
-  margin-left:5px;
+  margin-left:6px;
   cursor:pointer
 }
-.container{max-width:1200px;margin:auto;padding:20px}
-.section{margin-bottom:40px}
+.container{max-width:1300px;margin:auto;padding:20px}
+.section{margin-bottom:50px}
 .section h2{
   border-left:5px solid #00ffe1;
-  padding-left:10px;
+  padding-left:12px;
   color:#00ffe1
 }
 .grid{
   display:grid;
   grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
-  gap:15px
+  gap:16px
 }
 .card{
   background:#020617;
-  padding:15px;
-  border-radius:12px;
-  box-shadow:0 0 15px #00ffe122;
-  transition:.3s
+  padding:16px;
+  border-radius:14px;
+  box-shadow:0 0 20px #00ffe122;
+  transition:.25s
 }
 .card:hover{transform:scale(1.03)}
 .price{color:#00ff9d;font-weight:bold}
 button{
-  margin-top:10px;
-  padding:10px;
   width:100%;
+  padding:10px;
+  margin-top:8px;
   border:none;
   border-radius:8px;
   background:#00ffe1;
@@ -77,7 +77,11 @@ input{
   border:none;
   margin-top:8px
 }
-footer{text-align:center;opacity:.6;padding:15px}
+.vip{
+  border:1px solid #ffd700;
+  box-shadow:0 0 25px #ffd70055
+}
+footer{text-align:center;opacity:.6;padding:20px}
 </style>
 </head>
 
@@ -88,29 +92,159 @@ footer{text-align:center;opacity:.6;padding:15px}
 <button onclick="setLang('fr')">FR</button>
 <button onclick="setLang('en')">EN</button>
 </div>
-
 <h1 id="title">🛒 Boutique ARK Ascended</h1>
-<p id="subtitle">1 € = 100 Element • Boutique équilibrée</p>
+<p id="subtitle">1 € = 100 Element • Économie équilibrée</p>
 </header>
 
 <div class="container">
 
+<!-- PACKS -->
 <div class="section">
-<h2 id="packsTitle">📦 Packs Element</h2>
+<h2>📦 Packs</h2>
 <div class="grid">
 
 <div class="card">
 <h3>Pack Starter</h3>
-<p>Outils + armure légère + skins</p>
+<p>Outils métal • Armure légère • Skins</p>
 <p class="price">GRATUIT</p>
 </div>
 
 <div class="card">
 <h3>Pack Guerrier</h3>
-<p>Flak + shotgun + munitions</p>
+<p>Flak • Shotgun • Munitions</p>
 <p class="price">GRATUIT</p>
 </div>
 
 <div class="card">
 <h3>Pack Constructeur</h3>
-<p class="price
+<p>Structures métal complètes</p>
+<p class="price">2 500 Element</p>
+<button onclick="add('Pack Constructeur',2500)">Ajouter</button>
+</div>
+
+<div class="card">
+<h3>Pack Endgame</h3>
+<p>Tek + équipements avancés</p>
+<p class="price">4 500 Element</p>
+<button onclick="add('Pack Endgame',4500)">Ajouter</button>
+</div>
+
+</div>
+</div>
+
+<!-- VIP -->
+<div class="section">
+<h2>⭐ Packs VIP</h2>
+<div class="grid">
+
+<div class="card vip">
+<h3>VIP Argent</h3>
+<p>Kits mensuels • Skins exclusifs</p>
+<p class="price">1 500 Element</p>
+<button onclick="add('VIP Argent',1500)">Ajouter</button>
+</div>
+
+<div class="card vip">
+<h3>VIP Or</h3>
+<p>Bonus récolte • Accès shop VIP</p>
+<p class="price">3 000 Element</p>
+<button onclick="add('VIP Or',3000)">Ajouter</button>
+</div>
+
+<div class="card vip">
+<h3>VIP Tek</h3>
+<p>Skins Tek • Priorité staff</p>
+<p class="price">6 000 Element</p>
+<button onclick="add('VIP Tek',6000)">Ajouter</button>
+</div>
+
+</div>
+</div>
+
+<!-- FARM / CROPS -->
+<div class="section">
+<h2>🌱 Seed Farm & Agriculture</h2>
+<div class="grid">
+
+<div class="card"><h3>Petit Crop Plot</h3><p class="price">50</p><button onclick="add('Petit Crop Plot',50)">+</button></div>
+<div class="card"><h3>Moyen Crop Plot</h3><p class="price">80</p><button onclick="add('Moyen Crop Plot',80)">+</button></div>
+<div class="card"><h3>Grand Crop Plot</h3><p class="price">120</p><button onclick="add('Grand Crop Plot',120)">+</button></div>
+
+<div class="card"><h3>Seed Farm Starter</h3><p>Citronal • Rockarrot • Savoroot</p><p class="price">500</p><button onclick="add('Seed Farm Starter',500)">+</button></div>
+
+<div class="card"><h3>Seed Farm Avancée</h3><p>Toutes graines + fertilisant</p><p class="price">1 200</p><button onclick="add('Seed Farm Avancée',1200)">+</button></div>
+
+<div class="card"><h3>Fertilizer Pack</h3><p>Engrais x100</p><p class="price">300</p><button onclick="add('Fertilizer Pack',300)">+</button></div>
+
+</div>
+</div>
+
+<!-- OUTILS -->
+<div class="section">
+<h2>🪓 Outils</h2>
+<div class="grid">
+<div class="card"><h3>Pioche métal</h3><p class="price">60</p><button onclick="add('Pioche métal',60)">+</button></div>
+<div class="card"><h3>Hache métal</h3><p class="price">60</p><button onclick="add('Hache métal',60)">+</button></div>
+<div class="card"><h3>Forge industrielle</h3><p class="price">420</p><button onclick="add('Forge industrielle',420)">+</button></div>
+<div class="card"><h3>Grinder industriel</h3><p class="price">420</p><button onclick="add('Grinder industriel',420)">+</button></div>
+</div>
+</div>
+
+<!-- PANIER -->
+<div class="section">
+<h2>🛒 Panier</h2>
+
+<div id="cart">Panier vide</div>
+
+<label>🎟️ Code promo</label>
+<input id="promoInput" placeholder="ARK10">
+<button onclick="applyPromo()">Appliquer</button>
+
+<div class="total" id="total"></div>
+
+<a href="https://paypal.me/LegacySurvivals" target="_blank">
+<button style="background:#ffc439;color:#111">
+💳 Payer avec PayPal
+</button>
+</a>
+
+<p style="font-size:13px;opacity:.7">
+💡 Indique le montant affiché dans PayPal
+</p>
+</div>
+
+</div>
+
+<footer id="footer">
+Element gagnable en jeu • € optionnel
+</footer>
+
+<script>
+const RATE=100;
+let cart=JSON.parse(localStorage.getItem("cart"))||[];
+let discount=0;
+const promos={ARK10:10,WELCOME5:5};
+
+const cartDiv=document.getElementById("cart");
+const totalDiv=document.getElementById("total");
+const promoInput=document.getElementById("promoInput");
+
+function add(name,price){
+  cart.push({name,price});
+  save();
+}
+function applyPromo(){
+  discount=promos[promoInput.value.toUpperCase()]||0;
+  save();
+}
+function save(){
+  localStorage.setItem("cart",JSON.stringify(cart));
+  render();
+}
+function render(){
+  let html="",total=0;
+  cart.forEach(i=>{
+    total+=i.price;
+    html+=`<div class="cart-item"><span>${i.name}</span><span>${i.price}</span></div>`;
+  });
+  if(d
