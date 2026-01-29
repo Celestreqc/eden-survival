@@ -1,95 +1,259 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<title>ARK Ascended Shop</title>
+
+<style>
+/* ===== THEME TEK ===== */
+@keyframes tekGlow {
+  0% {box-shadow:0 0 5px #00ffe1}
+  50% {box-shadow:0 0 20px #00ffe1}
+  100% {box-shadow:0 0 5px #00ffe1}
+}
+
+body{
+  background:#05070c;
+  color:#e6e6e6;
+  font-family:Arial,sans-serif;
+  margin:0
+}
+header{
+  background:linear-gradient(90deg,#0f172a,#020617);
+  padding:25px;
+  text-align:center;
+  border-bottom:2px solid #00ffe1
+}
+header h1{color:#00ffe1;text-shadow:0 0 10px #00ffe1}
+
+.lang{
+  position:absolute;top:15px;right:15px
+}
+.lang button{
+  background:#020617;color:#00ffe1;
+  border:1px solid #00ffe1;
+  margin-left:5px;
+  cursor:pointer
+}
+
+.container{max-width:1300px;margin:auto;padding:20px}
+.section{margin-bottom:45px}
+.section h2{
+  border-left:5px solid #00ffe1;
+  padding-left:10px;
+  color:#00ffe1
+}
+
+.grid{
+  display:grid;
+  grid-template-columns:repeat(auto-fit,minmax(240px,1fr));
+  gap:15px
+}
+
+.card{
+  background:#0b1220;
+  padding:15px;
+  border-radius:10px;
+  animation:tekGlow 3s infinite
+}
+.card.vip{
+  border:2px solid gold;
+  animation:tekGlow 2s infinite
+}
+
+.price{color:#00ff9d;font-weight:bold}
+
+button{
+  margin-top:8px;
+  padding:10px;
+  width:100%;
+  border:none;
+  border-radius:6px;
+  background:#00ffe1;
+  cursor:pointer
+}
+button:hover{background:#00c9b7}
+
+#cart{
+  background:#020617;
+  border:1px solid #00ffe1;
+  padding:15px;
+  border-radius:10px
+}
+
+.cart-item{
+  display:flex;
+  justify-content:space-between;
+  margin-bottom:6px
+}
+
+.total{margin-top:10px;font-size:18px;color:#00ff9d}
+input{width:100%;padding:8px;border-radius:6px;border:none;margin-top:8px}
+
+footer{text-align:center;opacity:.6;padding:15px}
+</style>
+</head>
+
+<body>
+
+<header>
+<div class="lang">
+<button onclick="setLang('fr')">FR</button>
+<button onclick="setLang('en')">EN</button>
+</div>
+<h1 id="title">🛒 Boutique ARK Ascended</h1>
+<p id="subtitle">1 € = 100 Element • Boutique équilibrée</p>
+</header>
+
+<div class="container">
+
+<!-- VIP PACKS -->
+<div class="section">
+<h2>⭐ Packs VIP</h2>
+<div class="grid">
+<div class="card vip">
+<h3>VIP</h3>
+<p>
+✔️ Tag VIP<br>
+✔️ Skins dinos<br>
+✔️ Salon Discord VIP
+</p>
+<p class="price">1 500 Element</p>
+<button onclick="add('VIP',1500)">Ajouter</button>
+</div>
+
+<div class="card vip">
+<h3>VIP+</h3>
+<p>
+✔️ Tout VIP<br>
+✔️ Skins Tek<br>
+✔️ Bonus QoL
+</p>
+<p class="price">3 000 Element</p>
+<button onclick="add('VIP+',3000)">Ajouter</button>
+</div>
+
+<div class="card vip">
+<h3>ULTRA VIP</h3>
+<p>
+✔️ Tout VIP+<br>
+✔️ Skins exclusifs<br>
+✔️ Priorité support
+</p>
+<p class="price">5 000 Element</p>
+<button onclick="add('ULTRA VIP',5000)">Ajouter</button>
+</div>
+</div>
+</div>
+
+<!-- OUTILS (extrait, tu peux garder les autres sections aussi) -->
+<div class="section">
+<h2>🪓 Outils</h2>
+<div class="grid">
+<div class="card"><h3>Pioche métal</h3><p class="price">60</p><button onclick="add('Pioche métal',60)">+</button></div>
+<div class="card"><h3>Hache métal</h3><p class="price">60</p><button onclick="add('Hache métal',60)">+</button></div>
+<div class="card"><h3>Faucille métal</h3><p class="price">60</p><button onclick="add('Faucille métal',60)">+</button></div>
+</div>
+</div>
+
+<!-- PANIER -->
+<div class="section">
+<h2>🛒 Panier</h2>
+<div id="cart"></div>
+
+<label>🎟️ Code promo</label>
+<input id="promoInput" placeholder="ARK10">
+<button onclick="applyPromo()">Appliquer</button>
+
+<div class="total" id="total"></div>
+<button onclick="clearCart()">🗑️ Vider le panier</button>
+</div>
+
+</div>
+
+<footer>
+Element gagnable en jeu • € optionnel • Livraison via ticket Discord
+</footer>
+
 <script>
 const RATE = 100;
-let cart = [];
+let cart = JSON.parse(localStorage.getItem("arkCart")) || [];
 let discount = 0;
 let lang = "fr";
 
-// PROMOS (%)
-const promos = {
-  "ARK10": 10,
-  "WELCOME5": 5
-};
+const promos = {"ARK10":10,"WELCOME5":5};
 
-// ELEMENTS DOM
 const cartDiv = document.getElementById("cart");
 const totalDiv = document.getElementById("total");
 const promoInput = document.getElementById("promoInput");
 
-const title = document.getElementById("title");
-const subtitle = document.getElementById("subtitle");
-const packsTitle = document.getElementById("packsTitle");
-const toolsTitle = document.getElementById("toolsTitle");
-const cartTitle = document.getElementById("cartTitle");
-const promoLabel = document.getElementById("promoLabel");
-const footer = document.getElementById("footer");
+function saveCart(){
+  localStorage.setItem("arkCart", JSON.stringify(cart));
+}
 
 function add(name, element){
   cart.push({name,element});
+  saveCart();
+  render();
+}
+
+function clearCart(){
+  cart=[];
+  saveCart();
   render();
 }
 
 function applyPromo(){
   const code = promoInput.value.toUpperCase();
-  if(!promos[code]){
-    alert(lang === "fr" ? "Code promo invalide" : "Invalid promo code");
-    discount = 0;
-  }else{
-    discount = promos[code];
-    alert(lang === "fr"
-      ? `Code appliqué : -${discount}%`
-      : `Promo applied: -${discount}%`
-    );
-  }
+  discount = promos[code] || 0;
+  alert(discount ? `Promo -${discount}%` : "Code invalide");
   render();
 }
 
 function render(){
-  let html = "";
-  let total = 0;
+  let html="", total=0;
 
   cart.forEach(i=>{
-    total += i.element;
-    html += `
-      <div class="cart-item">
-        <span>${i.name}</span>
-        <span>${i.element} Element</span>
-      </div>`;
+    total+=i.element;
+    html+=`<div class="cart-item"><span>${i.name}</span><span>${i.element} Element</span></div>`;
   });
 
-  if(discount > 0){
-    total -= total * (discount / 100);
-  }
+  if(discount) total -= total*(discount/100);
 
-  cartDiv.innerHTML = html || (lang === "fr" ? "Panier vide" : "Empty cart");
-
+  cartDiv.innerHTML = html || (lang==="fr"?"Panier vide":"Empty cart");
   totalDiv.innerText =
-    (lang === "fr" ? "Total : " : "Total: ") +
-    Math.round(total) + " Element ≈ " +
-    (total / RATE).toFixed(2) + " €";
-}
+    `Total : ${Math.round(total)} Element ≈ ${(total/RATE).toFixed(2)} €`;
+}<div class="section">
+  <h2 id="cartTitle">🛒 Panier</h2>
 
-// LANGUES
-function setLang(l){
-  lang = l;
+  <div id="cart">Panier vide</div>
 
-  if(l === "en"){
-    title.innerText = "🛒 ARK Ascended Shop";
-    subtitle.innerText = "1 € = 100 Element • Balanced shop";
-    packsTitle.innerText = "📦 Element Packs";
-    toolsTitle.innerText = "🪓 Tools";
-    cartTitle.innerText = "🛒 Cart";
-    promoLabel.innerText = "🎟️ Promo code";
-    footer.innerText = "Element earnable in game • € optional";
-  }else{
-    title.innerText = "🛒 Boutique ARK Ascended";
-    subtitle.innerText = "1 € = 100 Element • Boutique équilibrée";
-    packsTitle.innerText = "📦 Packs Element";
-    toolsTitle.innerText = "🪓 Outils";
-    cartTitle.innerText = "🛒 Panier";
-    promoLabel.innerText = "🎟️ Code promo";
-    footer.innerText = "Element gagnable en jeu • € optionnel";
-  }
+  <label id="promoLabel">🎟️ Code promo</label>
+  <input id="promoInput" placeholder="ARK10">
+  <button onclick="applyPromo()">Appliquer</button>
 
-  render();
-}
+  <div class="total" id="total"></div>
+
+  <!-- PAYPAL -->
+  <a id="paypalBtn" href="https://paypal.me/LegacySurvivals" target="_blank">
+    <button style="background:#ffc439;color:#111;font-weight:bold;margin-top:10px">
+      💳 Payer avec PayPal
+    </button>
+  </a>
+
+  <p style="font-size:14px;opacity:.7;margin-top:6px">
+    💡 Indique le montant affiché ci-dessus dans PayPal
+  </p>
+
+  <p style="font-size:13px;color:#00ffe1;margin-top:5px">
+    📩 Après paiement, ouvre un ticket Discord avec la preuve PayPal
+  </p>
+</div>
+
+
+function setLang(l){lang=l;render()}
+render();
 </script>
+
+</body>
+</html>
