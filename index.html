@@ -1,62 +1,127 @@
 <!DOCTYPE html>
 <html lang="fr">
 <head>
-<meta charset="UTF-8">
-<title>Eden Survival — ARK Ascended x20</title>
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<!-- STYLE GLOBAL -->
-<!-- (colle ici le style donné plus haut) -->
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Shop VIP — Eden Survival</title>
+  <style>
+    body {
+      margin: 0;
+      font-family: Arial, Helvetica, sans-serif;
+      background: linear-gradient(180deg, #0b1d26, #02090d);
+      color: #e5f7ff;
+    }
+    header {
+      padding: 60px 20px;
+      text-align: center;
+      background: #02090d;
+      box-shadow: 0 0 20px rgba(0,229,255,0.2);
+    }
+    h1 {
+      color: #00e5ff;
+      text-shadow: 0 0 15px #00e5ff;
+    }
+    section {
+      padding: 60px 20px;
+      max-width: 1100px;
+      margin: auto;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+    .card {
+      background: rgba(255, 255, 255, 0.05);
+      border-radius: 14px;
+      padding: 25px;
+      box-shadow: 0 0 25px rgba(0,229,255,0.12);
+    }
+    .card h3 {
+      color: #7ff6ff;
+      margin-top: 0;
+    }
+    .badge {
+      display: inline-block;
+      padding: 6px 14px;
+      border-radius: 20px;
+      background: rgba(0,229,255,0.15);
+      color: #00e5ff;
+      font-size: 0.85rem;
+      margin-bottom: 10px;
+    }
+    .btn {
+      display: inline-block;
+      margin-top: 20px;
+      padding: 12px 26px;
+      background: #00e5ff;
+      color: #02090d;
+      text-decoration: none;
+      border-radius: 30px;
+      font-weight: bold;
+      box-shadow: 0 0 20px #00e5ff;
+    }
+    footer {
+      background: #02090d;
+      text-align: center;
+      padding: 30px 15px;
+      font-size: 0.9rem;
+      opacity: 0.8;
+    }
+  </style>
 </head>
-
 <body>
 
-<!-- MENU -->
-<nav class="navbar">
-  <a class="logo" href="index.html">EDEN SURVIVAL</a>
-  <ul>
-    <li><a href="index.html">Accueil</a></li>
-    <li><a href="mods.html">Mods</a></li>
-    <li><a href="parametres.html">Paramètres</a></li>
-    <li><a href="shop-vip.html">Shop VIP</a></li>
-    <li><a href="inscription.html">Inscription</a></li>
-    <li><a href="support.html">Support</a></li>
-    <li><a href="#discord" class="btn-discord">Discord</a></li>
-  </ul>
-</nav>
+<header>
+  <h1>⭐ Shop VIP — Eden Survival</h1>
+  <p>Avantages <strong>cosmétiques & qualité de vie uniquement</strong></p>
+  <p><strong>🚫 Aucun Pay-to-Win — aucun avantage gameplay</strong></p>
+</header>
 
-<!-- HERO -->
-<section style="text-align:center;padding-top:140px;">
-  <h1 style="color:#00e5ff;font-size:3rem;">EDEN SURVIVAL</h1>
-  <p>ARK Ascended • x20 • PVE • +40 Mods</p>
-  <p>Ragnarok & Valguero • Tame instant • Week-ends boost</p>
-</section>
-
-<!-- STATS -->
 <section>
-  <h2>📊 Stats Serveur</h2>
-  <ul>
-    <li>⚔️ XP / Récolte : x20</li>
-    <li>🐾 Tame : Instant</li>
-    <li>📦 Stack : x2500</li>
-    <li>🦖 Limite dinos : 200</li>
-    <li>🔁 No wipe</li>
-  </ul>
-</section>
+  <div class="grid">
+    <div class="card">
+      <span class="badge">VIP Bronze</span>
+      <h3>Survivant Soutien</h3>
+      <ul>
+        <li>🎨 Couleurs dinos / structures exclusives</li>
+        <li>🏷️ Titre Discord VIP Bronze</li>
+        <li>✨ Skin cosmétique</li>
+        <li>🎁 Kit cosmétique de bienvenue</li>
+      </ul>
+    </div>
 
-<!-- MAPS -->
-<section>
-  <h2>🗺️ Maps</h2>
-  <p>Ragnarok & Valguero — non cluster</p>
-</section>
+    <div class="card">
+      <span class="badge">VIP Argent</span>
+      <h3>Survivant Élite</h3>
+      <ul>
+        <li>🎨 Toutes les couleurs VIP</li>
+        <li>🦖 Skins dinos avancés</li>
+        <li>🏷️ Titre Discord VIP Argent</li>
+        <li>🧱 Skins structures</li>
+      </ul>
+    </div>
 
-<!-- CTA -->
-<section id="discord" style="text-align:center;">
-  <h2>💬 Rejoins la communauté</h2>
-  <a class="btn-discord" href="#">Rejoindre le Discord</a>
+    <div class="card">
+      <span class="badge">VIP Or</span>
+      <h3>Champion d’Eden</h3>
+      <ul>
+        <li>🌈 Skins rares & animations</li>
+        <li>🦕 Skins dinos premium</li>
+        <li>🏷️ Titre Discord VIP Or</li>
+        <li>🎭 Accès cosmétiques saisonniers</li>
+      </ul>
+    </div>
+  </div>
+
+  <div style="text-align:center;margin-top:50px;">
+    <a class="btn" href="#">Ouvrir un ticket Discord</a>
+  </div>
 </section>
 
 <footer>
-  © 2026 — Eden Survival • ARK Ascended
+  <p>© 2026 — Eden Survival • VIP cosmétique & QoL uniquement</p>
 </footer>
 
 </body>
