@@ -1,220 +1,95 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
-<title>Boutique ARK Ascended</title>
-
-<style>
-body{
-  font-family:Arial, sans-serif;
-  background:#0e1117;
-  color:#e6e6e6;
-  margin:0
-}
-header{
-  background:linear-gradient(90deg,#111827,#1f2933);
-  padding:20px;
-  text-align:center
-}
-header h1{color:#00ffe1}
-
-.container{
-  max-width:1100px;
-  margin:auto;
-  padding:20px
-}
-
-.card{
-  background:#161b22;
-  border-radius:10px;
-  padding:20px;
-  margin-bottom:30px;
-  text-align:center
-}
-
-.price{
-  font-size:20px;
-  color:#00ff9d;
-  font-weight:bold
-}
-
-button{
-  margin-top:15px;
-  padding:12px;
-  width:100%;
-  border:none;
-  border-radius:8px;
-  background:#00ffe1;
-  cursor:pointer;
-  font-size:16px
-}
-button:hover{background:#00c9b7}
-
-input{
-  width:100%;
-  padding:10px;
-  border-radius:6px;
-  border:none;
-  margin-top:10px
-}
-
-#cart{
-  background:#0d1117;
-  border:1px solid #222;
-  padding:15px;
-  border-radius:10px
-}
-
-.cart-item{
-  display:flex;
-  justify-content:space-between;
-  margin-bottom:8px
-}
-
-.remove{
-  color:#ff4d4d;
-  cursor:pointer
-}
-
-.total{
-  margin-top:10px;
-  font-size:18px;
-  color:#00ff9d
-}
-
-footer{
-  text-align:center;
-  padding:15px;
-  opacity:.6
-}
-</style>
-</head>
-
-<body>
-
-<header>
-<h1>🛒 Boutique ARK Ascended</h1>
-<p>Skins & QoL uniquement • No Pay To Win</p>
-</header>
-
-<div class="container">
-
-<!-- SPECIAL VIP -->
-<div class="card">
-<h2>👑 SPECIAL VIP</h2>
-<p>
-✔️ Tag VIP en jeu & Discord<br>
-✔️ Skins dinos exclusifs<br>
-✔️ Skins armures Tek<br>
-✔️ Accès salon VIP<br>
-✔️ Priorité support<br>
-🚫 Aucun bonus gameplay
-</p>
-<p class="price">50 €</p>
-<button onclick="addToCart('SPECIAL VIP',50)">Ajouter au panier</button>
-</div>
-
-<!-- PANIER -->
-<h2>🛒 Panier</h2>
-<div id="cart">
-
-<div id="cart-items"></div>
-
-<label>🎟️ Code promo</label>
-<input type="text" id="promoInput" placeholder="Ex : ARK10">
-<button onclick="applyPromo()">Appliquer</button>
-
-<div class="total" id="total"></div>
-<p id="element"></p>
-
-<br>
-<button onclick="checkout()">📩 Commander (Ticket Discord)</button>
-
-</div>
-
-</div>
-
-<footer>
-Element gagnable en jeu • Boutique optionnelle
-</footer>
-
 <script>
-const RATE = 100; // 1€ = 100 Element
-let cart = JSON.parse(localStorage.getItem("cartSpecialVIP")) || [];
-let discount = null;
+const RATE = 100;
+let cart = [];
+let discount = 0;
+let lang = "fr";
 
+// PROMOS (%)
 const promos = {
-  "ARK10": {type:"percent", value:10},
-  "WELCOME5": {type:"fixed", value:5}
+  "ARK10": 10,
+  "WELCOME5": 5
 };
 
-function save(){
-  localStorage.setItem("cartSpecialVIP", JSON.stringify(cart));
-}
+// ELEMENTS DOM
+const cartDiv = document.getElementById("cart");
+const totalDiv = document.getElementById("total");
+const promoInput = document.getElementById("promoInput");
 
-function addToCart(name, price){
-  cart.push({name, price});
-  save();
-  render();
-}
+const title = document.getElementById("title");
+const subtitle = document.getElementById("subtitle");
+const packsTitle = document.getElementById("packsTitle");
+const toolsTitle = document.getElementById("toolsTitle");
+const cartTitle = document.getElementById("cartTitle");
+const promoLabel = document.getElementById("promoLabel");
+const footer = document.getElementById("footer");
 
-function removeItem(index){
-  cart.splice(index,1);
-  save();
+function add(name, element){
+  cart.push({name,element});
   render();
 }
 
 function applyPromo(){
-  const code = document.getElementById("promoInput").value.toUpperCase();
+  const code = promoInput.value.toUpperCase();
   if(!promos[code]){
-    alert("Code promo invalide");
-    return;
+    alert(lang === "fr" ? "Code promo invalide" : "Invalid promo code");
+    discount = 0;
+  }else{
+    discount = promos[code];
+    alert(lang === "fr"
+      ? `Code appliqué : -${discount}%`
+      : `Promo applied: -${discount}%`
+    );
   }
-  discount = promos[code];
   render();
 }
 
-function getTotalEuro(){
-  let total = cart.reduce((s,i)=>s+i.price,0);
-  if(discount){
-    if(discount.type === "percent") total -= total * (discount.value/100);
-    if(discount.type === "fixed") total -= discount.value;
-  }
-  return Math.max(total,0);
-}
-
 function render(){
-  const cartItems = document.getElementById("cart-items");
-  const totalDiv = document.getElementById("total");
-  const elementDiv = document.getElementById("element");
+  let html = "";
+  let total = 0;
 
-  cartItems.innerHTML = "";
-
-  cart.forEach((item,index)=>{
-    cartItems.innerHTML += `
+  cart.forEach(i=>{
+    total += i.element;
+    html += `
       <div class="cart-item">
-        <span>${item.name}</span>
-        <span>${item.price} € <span class="remove" onclick="removeItem(${index})">✖</span></span>
-      </div>
-    `;
+        <span>${i.name}</span>
+        <span>${i.element} Element</span>
+      </div>`;
   });
 
-  const totalEuro = getTotalEuro();
-  totalDiv.innerText = "Total : " + totalEuro + " €";
-  elementDiv.innerText = "≈ " + (totalEuro * RATE) + " Element";
+  if(discount > 0){
+    total -= total * (discount / 100);
+  }
+
+  cartDiv.innerHTML = html || (lang === "fr" ? "Panier vide" : "Empty cart");
+
+  totalDiv.innerText =
+    (lang === "fr" ? "Total : " : "Total: ") +
+    Math.round(total) + " Element ≈ " +
+    (total / RATE).toFixed(2) + " €";
 }
 
-render();
+// LANGUES
+function setLang(l){
+  lang = l;
 
-function checkout(){
-  alert(
-    "Total : " + getTotalEuro() + " €\n" +
-    "≈ " + (getTotalEuro() * RATE) + " Element\n\n" +
-    "Merci d’ouvrir un ticket #ticket-shop sur Discord\n" +
-    "avec une preuve de paiement."
-  );
+  if(l === "en"){
+    title.innerText = "🛒 ARK Ascended Shop";
+    subtitle.innerText = "1 € = 100 Element • Balanced shop";
+    packsTitle.innerText = "📦 Element Packs";
+    toolsTitle.innerText = "🪓 Tools";
+    cartTitle.innerText = "🛒 Cart";
+    promoLabel.innerText = "🎟️ Promo code";
+    footer.innerText = "Element earnable in game • € optional";
+  }else{
+    title.innerText = "🛒 Boutique ARK Ascended";
+    subtitle.innerText = "1 € = 100 Element • Boutique équilibrée";
+    packsTitle.innerText = "📦 Packs Element";
+    toolsTitle.innerText = "🪓 Outils";
+    cartTitle.innerText = "🛒 Panier";
+    promoLabel.innerText = "🎟️ Code promo";
+    footer.innerText = "Element gagnable en jeu • € optionnel";
+  }
+
+  render();
 }
 </script>
-
-</body>
-</html>
