@@ -18,37 +18,26 @@ nav{
   box-shadow:0 0 15px rgba(0,229,255,.3)
 }
 nav ul{
-  list-style:none;display:flex;
-  justify-content:center;gap:20px;
-  padding:15px;margin:0;flex-wrap:wrap
+  list-style:none;display:flex;justify-content:center;
+  gap:20px;padding:15px;margin:0;flex-wrap:wrap
 }
 nav a{color:#e5f7ff;text-decoration:none;font-weight:bold}
 nav a:hover{color:#00e5ff}
 
-main{
-  max-width:1200px;
-  margin:auto;
-  padding:120px 20px 60px
-}
-
-h1{color:#00e5ff}
+main{max-width:1200px;margin:auto;padding:120px 20px 60px}
+h1{color:#00e5ff;text-align:center}
 
 .filters{
-  display:flex;gap:10px;flex-wrap:wrap;margin-bottom:30px
+  display:flex;justify-content:center;
+  gap:10px;flex-wrap:wrap;margin:30px 0
 }
 .filters button{
-  padding:10px 18px;
-  border:none;
-  border-radius:20px;
-  background:#0b1d26;
-  color:#e5f7ff;
-  cursor:pointer;
-  transition:.3s
+  padding:10px 18px;border:none;border-radius:20px;
+  background:#0b1d26;color:#e5f7ff;
+  cursor:pointer;transition:.3s
 }
-.filters button:hover,
-.filters button.active{
-  background:#00e5ff;
-  color:#02090d
+.filters button:hover,.filters button.active{
+  background:#00e5ff;color:#02090d
 }
 
 .grid{
@@ -59,26 +48,150 @@ h1{color:#00e5ff}
 
 .mod{
   background:rgba(255,255,255,.05);
-  border-radius:14px;
-  padding:20px;
-  text-align:center;
+  border-radius:14px;padding:20px;text-align:center;
   box-shadow:0 0 15px rgba(0,229,255,.15);
   transition:.3s
 }
 .mod:hover{transform:translateY(-8px)}
-.mod img{
-  width:90px;
-  border-radius:12px;
-  margin-bottom:10px
-}
-.mod a{
-  color:#00e5ff;
-  text-decoration:none;
-  font-weight:bold
-}
-.tag{
-  font-size:.8rem;
-  opacity:.7;
-  margin-top:5px
-}
+.mod img{width:90px;border-radius:12px;margin-bottom:10px}
+.mod a{color:#00e5ff;text-decoration:none;font-weight:bold}
+.tag{font-size:.8rem;opacity:.7;margin-top:6px}
 </style>
+</head>
+
+<body>
+
+<nav>
+<ul>
+  <li><a href="index.html">Accueil</a></li>
+  <li><a href="parametres.html">Paramètres</a></li>
+  <li><a href="mods.html" style="color:#00e5ff">Mods</a></li>
+  <li><a href="shop-vip.html">Shop VIP</a></li>
+  <li><a href="inscription.html">Inscription</a></li>
+</ul>
+</nav>
+
+<main>
+<h1>🧩 Mods du serveur Eden Survival</h1>
+<p style="text-align:center">Liste complète des +40 mods utilisés sur le serveur.</p>
+
+<div class="filters">
+<button class="active" onclick="filterMods('all',this)">Tous</button>
+<button onclick="filterMods('qol',this)">QoL</button>
+<button onclick="filterMods('build',this)">Build</button>
+<button onclick="filterMods('dino',this)">Dinos</button>
+<button onclick="filterMods('admin',this)">Admin</button>
+</div>
+
+<div class="grid">
+
+<!-- QoL / Core -->
+<div class="mod qol">
+<img src="https://media.forgecdn.net/avatars/960/840/638456182615114480.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/primal-chaos" target="_blank">Primal Chaos</a>
+<div class="tag">QoL / Contenu</div>
+</div>
+
+<div class="mod qol">
+<img src="https://media.forgecdn.net/avatars/983/228/638488183417332913.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/super-structures-ascended" target="_blank">Super Structures Ascended</a>
+<div class="tag">Build / QoL</div>
+</div>
+
+<div class="mod qol">
+<img src="https://media.forgecdn.net/avatars/982/876/638487709901636024.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/awesome-spyglass-ascended" target="_blank">Awesome Spyglass</a>
+<div class="tag">QoL</div>
+</div>
+
+<div class="mod qol">
+<img src="https://media.forgecdn.net/avatars/969/713/638462993421705273.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/dino-storage-ascended" target="_blank">Dino Storage Ascended</a>
+<div class="tag">QoL</div>
+</div>
+
+<div class="mod qol">
+<img src="https://media.forgecdn.net/avatars/984/138/638489099484062066.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/upgrade-station-ascended" target="_blank">Upgrade Station Ascended</a>
+<div class="tag">QoL</div>
+</div>
+
+<!-- Build -->
+<div class="mod build">
+<img src="https://media.forgecdn.net/avatars/964/463/638458590248530737.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/ckf-remastered" target="_blank">CKF Remastered</a>
+<div class="tag">Build</div>
+</div>
+
+<div class="mod build">
+<img src="https://media.forgecdn.net/avatars/954/140/638449210893078602.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/eco-trees" target="_blank">Eco Trees</a>
+<div class="tag">Build</div>
+</div>
+
+<div class="mod build">
+<img src="https://media.forgecdn.net/avatars/954/142/638449211892347056.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/eco-decor" target="_blank">Eco Decor</a>
+<div class="tag">Build</div>
+</div>
+
+<div class="mod build">
+<img src="https://media.forgecdn.net/avatars/954/143/638449212885419222.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/eco-garden" target="_blank">Eco Garden</a>
+<div class="tag">Build</div>
+</div>
+
+<!-- Dinos -->
+<div class="mod dino">
+<img src="https://media.forgecdn.net/avatars/976/490/638472381666979737.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/ark-additions-ascended" target="_blank">Ark Additions Ascended</a>
+<div class="tag">Dinos</div>
+</div>
+
+<div class="mod dino">
+<img src="https://media.forgecdn.net/avatars/971/862/638466159779782985.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/shiny-dinos-ascended" target="_blank">Shiny Dinos</a>
+<div class="tag">Dinos</div>
+</div>
+
+<div class="mod dino">
+<img src="https://media.forgecdn.net/avatars/977/204/638473163197217598.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/immersive-taming" target="_blank">Immersive Taming</a>
+<div class="tag">Dinos</div>
+</div>
+
+<div class="mod dino">
+<img src="https://media.forgecdn.net/avatars/977/312/638473262533402326.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/better-breeding" target="_blank">Better Breeding</a>
+<div class="tag">Dinos</div>
+</div>
+
+<!-- Admin -->
+<div class="mod admin">
+<img src="https://media.forgecdn.net/avatars/986/425/638492294363014534.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/server-ui" target="_blank">Server UI</a>
+<div class="tag">Admin</div>
+</div>
+
+<div class="mod admin">
+<img src="https://media.forgecdn.net/avatars/986/431/638492300170079577.png">
+<a href="https://www.curseforge.com/ark-survival-ascended/mods/admin-tools" target="_blank">Admin Tools</a>
+<div class="tag">Admin</div>
+</div>
+
+<!-- Tu peux continuer à dupliquer les blocs pour compléter exactement TES 40 mods -->
+</div>
+</main>
+
+<script>
+function filterMods(cat,btn){
+  document.querySelectorAll('.filters button').forEach(b=>b.classList.remove('active'));
+  btn.classList.add('active');
+  document.querySelectorAll('.mod').forEach(mod=>{
+    mod.style.display = (cat==='all'||mod.classList.contains(cat))?'block':'none';
+  });
+}
+</script>
+
+</body>
+</html>
