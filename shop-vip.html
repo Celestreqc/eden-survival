@@ -2,150 +2,61 @@
 <html lang="fr">
 <head>
 <meta charset="UTF-8">
-<title>Shop VIP — Eden Survival</title>
+<title>Shop Officielle — ARK Ascended</title>
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 
 <style>
-body{
-  margin:0;
-  font-family:Arial,Helvetica,sans-serif;
-  background:#02090d;
-  color:#e5f7ff;
+/* ===== BASE ===== */
+body {
+  margin: 0;
+  background: radial-gradient(circle at top, #0a1a1f, #000);
+  font-family: Arial, Helvetica, sans-serif;
+  color: #eaeaea;
 }
-nav{
-  background:#02090d;
-  padding:15px;
-  text-align:center;
-  border-bottom:2px solid #00e5ff;
+
+.container {
+  max-width: 1200px;
+  margin: auto;
+  padding: 30px;
 }
-nav a{
-  color:#00e5ff;
-  margin:0 10px;
-  text-decoration:none;
-  font-weight:bold;
+
+h1, h2 {
+  text-align: center;
 }
-main{
-  max-width:1000px;
-  margin:auto;
-  padding:40px 20px;
+
+h1 {
+  color: #00ffe1;
+  margin-bottom: 10px;
 }
-h1{
-  text-align:center;
-  color:#00e5ff;
+
+.subtitle {
+  text-align: center;
+  color: #aaa;
+  margin-bottom: 40px;
 }
-.pack{
-  background:#0b1d26;
-  border:1px solid #00e5ff;
-  border-radius:12px;
-  padding:20px;
-  margin:30px 0;
+
+/* ===== LOGO ARK RGB ===== */
+.ark-logo {
+  display: flex;
+  justify-content: center;
+  margin-bottom: 20px;
 }
-.pack h2{
-  color:#7ff6ff;
+
+.ark-logo svg {
+  width: 100px;
+  animation: rgbGlow 3s infinite linear;
 }
-.price{
-  font-size:1.5rem;
-  color:#00e5ff;
-  font-weight:bold;
+
+@keyframes rgbGlow {
+  0% { filter: drop-shadow(0 0 12px cyan); }
+  33% { filter: drop-shadow(0 0 14px magenta); }
+  66% { filter: drop-shadow(0 0 14px lime); }
+  100% { filter: drop-shadow(0 0 12px cyan); }
 }
-.btn{
-  display:inline-block;
-  margin-top:15px;
-  padding:12px 20px;
-  background:#00e5ff;
-  color:#02090d;
-  border-radius:25px;
-  text-decoration:none;
-  font-weight:bold;
-}
-</style>
-</head>
 
-<body>
-
-<nav>
-  <a href="index.html">Accueil</a>
-  <a href="mods.html">Mods</a>
-  <a href="shop-vip.html">Shop VIP</a>
-  <a href="inscription.html">Inscription</a>
-</nav>
-
-<main>
-<h1>⭐ Shop VIP — Eden Survival</h1>
-<p style="text-align:center">
-Avantages <strong>cosmétiques & QoL uniquement</strong><br>
-
-</p>
-
-<div class="pack">
-  <h2>🌱 Pack Survivant</h2>
-  <ul>
-    <li>Tag VIP Discord</li>
-    <li>Couleur pseudo en jeu</li>
-    <li>Skin cosmétique</li>
-  </ul>
-  <div class="price">0 €</div>
-  <a class="btn" href="#">Acheter</a>
-</div>
-
-<div class="pack">
-  <h2>🌿 Pack Eden</h2>
-  <ul>
-    <li>Tout du pack précédent</li>
-    <li>Skins dinos</li>
-    <li>Emotes spéciales</li>
-  </ul>
-  <div class="price">10 €</div>
-  <a class="btn" href="#">Acheter</a>
-</div>
-
-<div class="pack">
-  <h2>🔥 Pack Titan</h2>
-  <ul>
-    <li>Tous les avantages</li>
-    <li>Skin base premium</li>
-    <li>Badge Discord exclusif</li>
-  </ul>
-  <div class="price">20 €</div>
-  <a class="btn" href="#">Acheter</a>
-  
-</div><div class="pack">
-  <h2>💎 Pack Légende</h2>
-  <ul>
-    <li>Tout le Pack Titan</li>
-    <li>Skins dinos ultra rares</li>
-    <li>Skin base exclusif Légende</li>
-    <li>Badge Discord 💎</li>
-    <li>Nom ultra personnalisé en jeu</li>
-  </ul>
-  <div class="price">30 €</div>
-  <a class="btn" href="#">Acheter</a>
-</div>
-
-<div class="pack">
-  <h2>👑 Pack Mythique</h2>
-  <ul>
-    <li>Tous les packs précédents</li>
-    <li>Skins animés (cosmétiques)</li>
-    <li>Annonce de connexion spéciale</li>
-    <li>Rôle Mythique Discord 👑</li>
-    <li>Priorité support</li>
-  </ul>
-  <div class="price">50 €</div>
-  <a class="btn" href="#">Acheter</a>
-
-<div class="pack">
-  <h2>🔥 Pack Divin</h2>
-  <ul>
-    <li>Accès TOTAL cosmétique</li>
-    <li>Skins uniques serveur</li>
-    <li>Nom doré permanent</li>
-    <li>Rôle Divin Discord 🔥</li>
-    <li>Accès suggestions privées</li>
-  </ul>
-  <div class="price">100 €</div>
-  <a class="btn" href="#">Acheter</a>
-</div>
+/* ===== SECTIONS ===== */
+.section {
+  back
 
 
 </main>
