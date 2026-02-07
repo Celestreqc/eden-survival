@@ -1,1 +1,17 @@
+<audio id="bgMusic" loop>
+  <source src="music.mp3" type="audio/mpeg">
+</audio>
+
+<button onclick="playMusic()" 
+class="fixed bottom-5 right-5 bg-cyan-600 px-4 py-2 rounded-xl font-bold shadow-lg">
+🎧 Music ON
+</button>
+
+<script>
+function playMusic(){
+  const m = document.getElementById("bgMusic");
+  m.volume = 0.3;
+  m.play();
+}
+</script>
 
